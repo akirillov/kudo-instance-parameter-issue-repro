@@ -1,0 +1,14 @@
+apiVersion: kudo.dev/v1beta1
+kind: Instance
+metadata:
+  labels:
+    controller-tools.k8s.io: "1.0"
+    operator: external-operator
+  name: external-opereator-instance
+spec:
+  operatorVersion:
+    name: external-operator-0.1.0
+    namespace: {{ .Namespace }}
+    type: OperatorVersions
+  parameters:
+    images: "{{ .Params.images }}"

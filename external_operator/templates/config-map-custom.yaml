@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-config-custom
+data:
+  config.yaml: |-
+    images:
+    {{- if eq (len .Params.images) 1 }}
+    {{- range $image := (splitList " " (index .Params.images 0))}}
+    - {{$image -}}
+    {{- end }}
+    {{- else }}
+    {{- range $image := .Params.images }}
+    - {{$image -}}
+    {{- end }}
+    {{- end }}

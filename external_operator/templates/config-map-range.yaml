@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-config-range
+data:
+  config.yaml: |-
+    images:
+    {{- range $image := .Params.images }}
+    - {{$image -}}
+    {{- end }}

@@ -1,0 +1,22 @@
+apiVersion: kudo.dev/v1beta1
+name: "main-operator"
+operatorVersion: "0.1.0"
+kudoVersion: 0.12.0
+kubernetesVersion: 1.15.0
+appVersion: "1.0"
+tasks:
+  - name: instance
+    kind: Apply
+    spec:
+      resources:
+        - external.yaml
+plans:
+  deploy:
+    strategy: serial
+    phases:
+      - name: install
+        strategy: serial
+        steps:
+          - name: install-instance
+            tasks:
+              - instance

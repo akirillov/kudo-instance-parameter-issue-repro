@@ -1,0 +1,9 @@
+apiVersion: kudo.dev/v1beta1
+parameters:
+  - name: images
+    description: "Example array of values"
+    default:
+      - example/x:test
+      - example/y:test
+      - example/z:test
+    type: array

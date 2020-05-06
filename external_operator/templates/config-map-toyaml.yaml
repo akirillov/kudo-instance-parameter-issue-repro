@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-config-toyaml
+data:
+  config.yaml: |-
+    images:
+{{ .Params.images | toYaml | trim | indent 6}}
