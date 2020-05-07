@@ -4,7 +4,7 @@ metadata:
   labels:
     controller-tools.k8s.io: "1.0"
     operator: external-operator
-  name: external-opereator-instance
+  name: external-operator-instance
 spec:
   operatorVersion:
     name: external-operator-0.1.0
