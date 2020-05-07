@@ -11,4 +11,5 @@ spec:
     namespace: {{ .Namespace }}
     type: OperatorVersions
   parameters:
-    images: "{{ .Params.images }}"
+    images: |-
+{{ .Params.images | toYaml | trim | indent 6 }}
